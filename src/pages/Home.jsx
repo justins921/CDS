@@ -6,6 +6,9 @@ import ProductCard from '../components/ProductCard';
 import TestimonialCard from '../components/TestimonialCard';
 import CTASection from '../components/CTASection';
 import { testimonials, youtubeVideos } from '../data/siteData';
+import { images } from '../data/images';
+
+const videoThumbnails = [images.videoThumb1, images.videoThumb2, images.videoThumb3];
 
 export default function Home() {
   useEffect(() => {
@@ -24,8 +27,8 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gold-500/5 via-transparent to-transparent" />
 
-        <div className="relative section-container py-20 md:py-32 lg:py-40">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="relative section-container pt-28 pb-16 md:pt-36 md:pb-24 lg:pt-40 lg:pb-32">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="max-w-2xl">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
                 I Own{' '}
@@ -49,10 +52,14 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Hero Image Placeholder */}
+            {/* Hero Image */}
             <div className="hidden lg:flex items-center justify-center">
-              <div className="w-full max-w-md aspect-[4/5] rounded-2xl bg-gray-700 flex items-center justify-center border border-navy-600/50">
-                <span className="text-gray-400 text-sm">Hero Image Placeholder</span>
+              <div className="w-full max-w-md aspect-[4/5] rounded-2xl overflow-hidden border border-navy-600/50">
+                <img
+                  src={images.headshot}
+                  alt="Chandler David Smith - Real Estate Investor and Educator"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>
@@ -149,10 +156,13 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-6">
             {youtubeVideos.map((video, i) => (
               <div key={i} className="card p-0 overflow-hidden">
-                <div className="aspect-video bg-gray-700 flex items-center justify-center">
-                  <span className="text-gray-400 text-sm">
-                    YouTube Video Placeholder
-                  </span>
+                <div className="aspect-video overflow-hidden">
+                  <img
+                    src={videoThumbnails[i]}
+                    alt={video.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div className="p-5">
                   <h3 className="text-white font-semibold mb-1">
@@ -274,7 +284,7 @@ export default function Home() {
       {/* ───────── About Preview ───────── */}
       <section className="py-16 md:py-24">
         <div className="section-container">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
               <h2 className="section-heading">Meet Chandler</h2>
               <p className="text-gray-400 leading-relaxed mb-8">
@@ -286,7 +296,7 @@ export default function Home() {
                 strategies, tools, and mindset that got him there.
               </p>
 
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-8">
+              <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-6 mb-8">
                 {[
                   { value: '$50M+', label: 'Portfolio Value' },
                   { value: '230+', label: 'Rental Doors' },
@@ -305,10 +315,15 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Photo placeholder */}
+            {/* Chandler photo */}
             <div className="flex justify-center">
-              <div className="w-full max-w-sm aspect-square rounded-2xl bg-gray-700 flex items-center justify-center border border-navy-600/50">
-                <span className="text-gray-400 text-sm">Photo Placeholder</span>
+              <div className="w-full max-w-sm aspect-square rounded-2xl overflow-hidden border border-navy-600/50">
+                <img
+                  src={images.headshot}
+                  alt="Chandler David Smith"
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>

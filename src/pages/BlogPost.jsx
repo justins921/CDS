@@ -86,7 +86,7 @@ export default function BlogPost() {
 
       <section className="pt-32 pb-20 bg-navy-900">
         <div className="section-container">
-          <div className="grid lg:grid-cols-3 gap-12">
+          <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
             {/* Main Content */}
             <article className="lg:col-span-2">
               <Link to="/blog" className="inline-flex items-center text-gold-400 hover:text-gold-300 transition mb-8">

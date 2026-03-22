@@ -44,7 +44,7 @@ export default function Consulting() {
       {/* What You Get */}
       <section className="py-16 md:py-24">
         <div className="section-container">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
               <h2 className="section-heading">What You Get</h2>
               <p className="text-gray-400 mb-6">
@@ -157,7 +157,7 @@ export default function Consulting() {
       <section className="py-16 md:py-24 bg-navy-800/50">
         <div className="section-container">
           <div className="max-w-2xl mx-auto">
-            <div className="bg-navy-800 border border-navy-600/50 rounded-2xl p-12 text-center">
+            <div className="bg-navy-800 border border-navy-600/50 rounded-2xl p-6 md:p-12 text-center">
               <div className="w-16 h-16 bg-gold-500/10 border border-gold-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-gold-400 text-2xl">&#128197;</span>
               </div>
@@ -179,7 +179,7 @@ export default function Consulting() {
               Advice from someone who has actually done it — not just talked about it.
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6 max-w-3xl mx-auto">
             <div className="text-center">
               <p className="text-3xl font-bold gradient-text">$50M+</p>
               <p className="text-gray-400 text-sm mt-1">Portfolio Value</p>

@@ -2,6 +2,15 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
 import { courseModules, coursePricing, bonusCourses, testimonials } from '../data/siteData';
+import { images } from '../data/images';
+
+const bonusThumbnails = {
+  'Seller Finance Masterclass': images.sellerFinance,
+  'Cost Segregation Workshop': images.costSegregation,
+  'Mailer Marketing Blueprint': images.mailerMarketing,
+  'Deal Finding Mastery': images.dealFinding,
+  'Tiny Homes Bootcamp': images.tinyHomes,
+};
 
 const faqs = [
   {
@@ -47,6 +56,12 @@ export default function Course() {
       {/* Hero */}
       <section className="pt-24 pb-16 md:pt-32 md:pb-24">
         <div className="section-container text-center">
+          <img
+            src={images.courseLogo}
+            alt="Real Estate Investing Course logo"
+            loading="lazy"
+            className="mx-auto h-16 md:h-24 object-contain mb-6"
+          />
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4">
             The Complete{' '}
             <span className="gradient-text">Real Estate Investing Course</span>
@@ -57,13 +72,19 @@ export default function Course() {
           <p className="text-base text-gray-400 mb-6">
             15 Modules &middot; 5+ Hours &middot; Everything You Need
           </p>
-          <div className="flex justify-center gap-8 mb-8">
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-8 mb-8">
             <div>
               <p className="text-2xl font-bold gradient-text">3,000+</p>
               <p className="text-gray-400 text-sm">Students</p>
             </div>
             <div>
               <p className="text-2xl font-bold gradient-text">4.9/5.0</p>
+              <img
+                src={images.ratingStars}
+                alt="4.9 out of 5 stars"
+                loading="lazy"
+                className="h-4 mx-auto mt-1"
+              />
               <p className="text-gray-400 text-sm">Rating</p>
             </div>
             <div>
@@ -170,6 +191,14 @@ export default function Course() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {bonusCourses.map((course) => (
               <div key={course.title} className="card text-center">
+                {bonusThumbnails[course.title] && (
+                  <img
+                    src={bonusThumbnails[course.title]}
+                    alt={course.title}
+                    loading="lazy"
+                    className="w-full aspect-video rounded-lg object-cover mb-4"
+                  />
+                )}
                 <h3 className="text-white font-semibold mb-1">{course.title}</h3>
                 <p className="text-gray-500 text-xs mb-2">{course.lessons} lessons</p>
                 <p className="text-gold-400 text-sm font-medium">${course.value} value</p>

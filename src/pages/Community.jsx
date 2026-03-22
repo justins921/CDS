@@ -1,6 +1,16 @@
 import { useEffect } from 'react';
 import SEOHead from '../components/SEOHead';
 import { communityFeatures, communityPricing, bonusCourses, testimonials } from '../data/siteData';
+import { images } from '../data/images';
+
+const featureIcons = [
+  { icon: images.communityIcon, alt: 'Community icon' },
+  { icon: images.videoIcon, alt: 'Video trainings icon' },
+  { icon: images.coachingIcon, alt: 'Q&A coaching icon' },
+  { icon: images.gemIcon, alt: 'Deal analysis icon' },
+  { icon: images.houseIcon, alt: 'Deal flow icon' },
+  { icon: images.networkIcon, alt: 'Network icon' },
+];
 
 const steps = [
   {
@@ -55,6 +65,12 @@ export default function Community() {
             Join the{' '}
             <span className="gradient-text">Creative Cashflow Club</span>
           </h1>
+          <img
+            src={images.cccLogo}
+            alt="Creative Cashflow Club logo"
+            loading="lazy"
+            className="mx-auto h-20 md:h-28 object-contain mb-6"
+          />
           <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-4">
             Helping you secure lasting wealth with expert guidance and a powerful network.
           </p>
@@ -91,8 +107,16 @@ export default function Community() {
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {communityFeatures.map((b) => (
-              <div key={b.title} className="card">
+            {communityFeatures.map((b, index) => (
+              <div key={b.title} className="card flex flex-col items-center text-center">
+                {featureIcons[index] && (
+                  <img
+                    src={featureIcons[index].icon}
+                    alt={featureIcons[index].alt}
+                    loading="lazy"
+                    className="w-12 h-12 object-contain mb-4"
+                  />
+                )}
                 <h3 className="text-lg font-semibold text-white mb-2">{b.title}</h3>
                 <p className="text-gray-400 text-sm leading-relaxed">{b.description}</p>
               </div>

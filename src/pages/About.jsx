@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
 import CTASection from '../components/CTASection';
+import { images } from '../data/images';
 
 const milestones = [
   { year: '2017', title: 'First Rental Property Purchased', description: 'Bought a single-family home as a house hack while still working a W-2 job.' },
@@ -15,10 +16,18 @@ const milestones = [
 ];
 
 const portfolioItems = [
-  { label: '230+ Residential Doors', description: 'Single-family and small multifamily rentals across multiple markets.' },
-  { label: '170+ Storage Units', description: 'Self-storage facilities generating passive, recession-resistant income.' },
-  { label: '2 Commercial Gyms', description: 'Value-add commercial properties with long-term leases.' },
-  { label: '1 Office Building', description: 'Commercial office space acquired through creative financing.' },
+  { label: '230+ Residential Doors', description: 'Single-family and small multifamily rentals across multiple markets.', image: images.vegasAttendees1 },
+  { label: '170+ Storage Units', description: 'Self-storage facilities generating passive, recession-resistant income.', image: images.grandTetonFrame1 },
+  { label: '2 Commercial Gyms', description: 'Value-add commercial properties with long-term leases.', image: images.vegasSupercar },
+  { label: '1 Office Building', description: 'Commercial office space acquired through creative financing.', image: images.vegasCityLights },
+];
+
+const featuredLogos = [
+  { src: images.biggerPockets, alt: 'BiggerPockets' },
+  { src: images.featureLogo1, alt: 'Featured publication' },
+  { src: images.featureLogo3, alt: 'Featured publication' },
+  { src: images.featureLogo4, alt: 'Featured publication' },
+  { src: images.whiteBoardFinance, alt: 'White Board Finance' },
 ];
 
 export default function About() {
@@ -38,8 +47,8 @@ export default function About() {
         <div className="absolute inset-0 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gold-500/5 via-transparent to-transparent" />
 
-        <div className="relative section-container py-20 md:py-32">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="relative section-container pt-28 pb-16 md:pt-36 md:pb-24">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="max-w-2xl">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
                 The Story Behind{' '}
@@ -52,11 +61,14 @@ export default function About() {
               </p>
             </div>
 
-            {/* Photo placeholder */}
+            {/* Headshot */}
             <div className="flex justify-center">
-              <div className="w-full max-w-sm aspect-[3/4] rounded-2xl bg-gray-700 flex items-center justify-center border border-navy-600/50">
-                <span className="text-gray-400 text-sm">Chandler Photo Placeholder</span>
-              </div>
+              <img
+                src={images.headshot}
+                alt="Chandler David Smith"
+                loading="lazy"
+                className="w-full max-w-sm aspect-[3/4] rounded-2xl object-cover border border-navy-600/50"
+              />
             </div>
           </div>
         </div>
@@ -162,9 +174,12 @@ export default function About() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {portfolioItems.map((item) => (
               <div key={item.label} className="card text-center flex flex-col items-center">
-                <div className="w-full aspect-video rounded-lg bg-gray-700 flex items-center justify-center mb-5">
-                  <span className="text-gray-400 text-xs">Image Placeholder</span>
-                </div>
+                <img
+                  src={item.image}
+                  alt={item.label}
+                  loading="lazy"
+                  className="w-full aspect-video rounded-lg object-cover mb-5"
+                />
                 <h3 className="text-lg font-bold text-white mb-2">
                   {item.label}
                 </h3>
@@ -189,20 +204,17 @@ export default function About() {
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-8 md:gap-14">
-            {[
-              'BiggerPockets',
-              'Real Estate Rookie',
-              'Investing Made Simple',
-              'The Money Show',
-              'REI Nation',
-            ].map((name) => (
+            {featuredLogos.map((logo) => (
               <div
-                key={name}
-                className="w-40 h-16 rounded-lg bg-navy-700/60 border border-navy-600/40 flex items-center justify-center"
+                key={logo.alt}
+                className="w-40 h-16 rounded-lg bg-navy-700/60 border border-navy-600/40 flex items-center justify-center p-3"
               >
-                <span className="text-gray-500 text-sm font-medium">
-                  {name}
-                </span>
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  loading="lazy"
+                  className="max-h-full max-w-full object-contain"
+                />
               </div>
             ))}
           </div>

@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
 import { calculatorFeatures } from '../data/siteData';
+import { images } from '../data/images';
 
 const steps = [
   {
@@ -68,28 +69,32 @@ export default function Calculator() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
                   href="#"
-                  className="flex items-center justify-center px-6 py-3 bg-navy-800 border border-navy-600 rounded-lg hover:border-gold-500/30 transition-all duration-300"
+                  className="inline-block hover:opacity-80 transition-opacity duration-300"
                 >
-                  <div className="text-left">
-                    <p className="text-xs text-gray-400">Download on the</p>
-                    <p className="text-white font-semibold">App Store</p>
-                  </div>
+                  <img
+                    src={images.appStore}
+                    alt="Download on the App Store"
+                    className="h-12 w-auto"
+                  />
                 </a>
                 <a
                   href="#"
-                  className="flex items-center justify-center px-6 py-3 bg-navy-800 border border-navy-600 rounded-lg hover:border-gold-500/30 transition-all duration-300"
+                  className="inline-block hover:opacity-80 transition-opacity duration-300"
                 >
-                  <div className="text-left">
-                    <p className="text-xs text-gray-400">Get it on</p>
-                    <p className="text-white font-semibold">Google Play</p>
-                  </div>
+                  <img
+                    src={images.googlePlay}
+                    alt="Get it on Google Play"
+                    className="h-12 w-auto"
+                  />
                 </a>
               </div>
             </div>
             <div className="flex justify-center">
-              <div className="w-64 h-[500px] bg-navy-800 border border-navy-600/50 rounded-3xl flex items-center justify-center">
-                <p className="text-gray-500 text-sm text-center px-4">App Screenshot Mockup</p>
-              </div>
+              <img
+                src={images.calculatorApp}
+                alt="CDS Rental Property Calculator app screenshot"
+                className="w-48 sm:w-64 rounded-3xl"
+              />
             </div>
           </div>
         </div>
@@ -186,21 +191,25 @@ export default function Calculator() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
             <a
               href="#"
-              className="flex items-center justify-center px-6 py-3 bg-navy-800 border border-navy-600 rounded-lg hover:border-gold-500/30 transition-all duration-300"
+              className="inline-block hover:opacity-80 transition-opacity duration-300"
             >
-              <div className="text-left">
-                <p className="text-xs text-gray-400">Download on the</p>
-                <p className="text-white font-semibold">App Store</p>
-              </div>
+              <img
+                src={images.appStore}
+                alt="Download on the App Store"
+                loading="lazy"
+                className="h-12 w-auto"
+              />
             </a>
             <a
               href="#"
-              className="flex items-center justify-center px-6 py-3 bg-navy-800 border border-navy-600 rounded-lg hover:border-gold-500/30 transition-all duration-300"
+              className="inline-block hover:opacity-80 transition-opacity duration-300"
             >
-              <div className="text-left">
-                <p className="text-xs text-gray-400">Get it on</p>
-                <p className="text-white font-semibold">Google Play</p>
-              </div>
+              <img
+                src={images.googlePlay}
+                alt="Get it on Google Play"
+                loading="lazy"
+                className="h-12 w-auto"
+              />
             </a>
           </div>
           <p className="text-gray-400 text-sm">

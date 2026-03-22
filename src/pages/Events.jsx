@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
 import { events } from '../data/siteData';
+import { images } from '../data/images';
 
 export default function Events() {
   useEffect(() => {
@@ -11,7 +12,14 @@ export default function Events() {
   const featuredEvent = events.find((e) => e.featured);
   const otherEvents = events.filter((e) => !e.featured);
 
-  const pastEventPhotos = Array.from({ length: 6 }, (_, i) => i + 1);
+  const pastEventPhotos = [
+    { src: images.vegasSupercar, alt: 'Vegas Retreat event photo - driving supercars' },
+    { src: images.vegasCityLights, alt: 'Vegas Retreat event photo - city lights at night' },
+    { src: images.vegasSign, alt: 'Vegas Retreat event photo - Las Vegas signage' },
+    { src: images.vegasAttendees1, alt: 'Vegas Retreat event photo - attendees networking' },
+    { src: images.vegasAttendees2, alt: 'Vegas Retreat event photo - attendee group' },
+    { src: images.grandTetonFrame1, alt: 'Grand Teton Summit event photo' },
+  ];
 
   return (
     <>
@@ -39,10 +47,10 @@ export default function Events() {
         <section className="py-16 bg-navy-900">
           <div className="section-container">
             <div className="relative overflow-hidden rounded-2xl border border-gold-500/30 bg-gradient-to-br from-navy-800 to-navy-900 p-8 md:p-12">
-              <div className="absolute top-4 right-4 bg-gold-500 text-navy-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+              <div className="bg-gold-500 text-navy-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide inline-block mb-4">
                 Featured Event
               </div>
-              <div className="max-w-3xl pr-20 sm:pr-0">
+              <div className="max-w-3xl">
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                   {featuredEvent.title}
                 </h2>
@@ -124,12 +132,17 @@ export default function Events() {
             A look back at some of our most impactful gatherings.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {pastEventPhotos.map((num) => (
+            {pastEventPhotos.map((photo) => (
               <div
-                key={num}
-                className="aspect-video bg-navy-700 rounded-lg flex items-center justify-center border border-navy-600/50"
+                key={photo.alt}
+                className="aspect-video rounded-lg overflow-hidden"
               >
-                <span className="text-gray-500 text-sm">Event Photo Placeholder</span>
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
               </div>
             ))}
           </div>

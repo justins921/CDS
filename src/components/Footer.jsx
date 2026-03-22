@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { socialLinks } from '../data/siteData';
+import { images } from '../data/images';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
@@ -46,8 +47,8 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           {/* About */}
           <div className="col-span-2 md:col-span-1">
-            <Link to="/" className="gradient-text text-2xl font-bold tracking-wide">
-              CDS
+            <Link to="/" className="inline-block">
+              <img src={images.logo} alt="CDS" className="h-10 w-auto" />
             </Link>
             <p className="text-gray-400 text-sm mt-4 leading-relaxed">
               Chandler David Smith is a real estate investor with a $50M+ rental

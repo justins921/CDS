@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
 import { consultingPackages } from '../data/siteData';
+import { images } from '../data/images';
 
 const benefits = [
   'Personalized investment strategy tailored to your goals and market',
@@ -60,8 +61,13 @@ export default function Consulting() {
               </ul>
             </div>
             <div className="hidden lg:block">
-              <div className="aspect-square bg-navy-800 border border-navy-600/50 rounded-2xl flex items-center justify-center text-gray-500">
-                Consulting Photo Placeholder
+              <div className="aspect-square rounded-2xl overflow-hidden border border-navy-600/50">
+                <img
+                  src={images.consultingHeadshot}
+                  alt="Chandler David Smith - Real Estate Consulting"
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>

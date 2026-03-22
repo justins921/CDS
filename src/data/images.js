@@ -5,14 +5,17 @@ export const images = {
   // Branding
   logo: `${CDN}/67e4510591dada623fd5462a_cds%20icon.png`,
 
-  // Chandler headshot
+  // Chandler headshots
   headshot: `${CDN}/67f43f6cd03b9fd859789eb3_E5-bVp5vSFCMeLeLHYP7wQ.JPG`,
+  consultingHeadshot: `${CDN}/62aa18223e23c3c638458f95_Export%20(36%20of%20171).JPG`,
 
   // App screenshots
   calculatorApp: `${CDN}/67e4bebbbb2df24a39f2d94e_cds%20rental%20calc.png`,
   appFeature: `${CDN}/67e76ae60e3d61d0f8b97f3a_5.png`,
   savedHomes: `${CDN}/67e7696d37d6bdb3afb18ff9_saved%20homes.svg`,
   appIcon: `${CDN}/67e78e5f9d1816c955e7bd11_chan%20app%20icon.svg`,
+
+  desktopIcon: `${CDN}/67f089a2218d9995b071b6af_desktop%20(1).svg`,
 
   // App store badges
   appStore: `${CDN}/67f08810cd273c7f767bcc0f_21-21.png`,

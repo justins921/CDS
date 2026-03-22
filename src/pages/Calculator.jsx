@@ -66,7 +66,7 @@ export default function Calculator() {
               <p className="text-gray-400 text-lg mb-8">
                 Download the same spreadsheet that I use to run my numbers and get a 29% return. Review cap rate, cash-on-cash return, and other important metrics in minutes.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row items-start gap-4">
                 <a
                   href="#"
                   className="inline-block hover:opacity-80 transition-opacity duration-300"
@@ -86,6 +86,13 @@ export default function Calculator() {
                     alt="Get it on Google Play"
                     className="h-12 w-auto"
                   />
+                </a>
+                <a
+                  href="#"
+                  className="inline-flex items-center gap-2 px-5 py-3 bg-navy-800 border border-navy-600 rounded-lg hover:border-gold-500/30 transition-all duration-300"
+                >
+                  <img src={images.desktopIcon} alt="" className="h-5 w-5" />
+                  <span className="text-white font-semibold text-sm">Desktop</span>
                 </a>
               </div>
             </div>

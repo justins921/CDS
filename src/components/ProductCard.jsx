@@ -36,7 +36,7 @@ export default function ProductCard({
       {link && (
         <Link
           to={link}
-          className="inline-flex items-center text-gold-400 text-sm font-medium mt-5 group hover:text-gold-300 transition-colors"
+          className="inline-flex items-center text-gold-400 text-sm font-medium mt-5 py-2 group hover:text-gold-300 transition-colors"
         >
           {linkText}
           <svg

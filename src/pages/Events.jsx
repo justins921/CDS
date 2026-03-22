@@ -42,7 +42,7 @@ export default function Events() {
               <div className="absolute top-4 right-4 bg-gold-500 text-navy-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
                 Featured Event
               </div>
-              <div className="max-w-3xl">
+              <div className="max-w-3xl pr-20 sm:pr-0">
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                   {featuredEvent.title}
                 </h2>

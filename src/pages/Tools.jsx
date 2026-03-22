@@ -107,7 +107,7 @@ export default function Tools() {
               <p className="text-gray-400 mb-6">
                 Figure out exactly how many rental properties you need to replace your income and retire through real estate. Download the free PDF spreadsheet.
               </p>
-              <form onSubmit={handleDownload} className="flex gap-3">
+              <form onSubmit={handleDownload} className="flex flex-col sm:flex-row gap-3">
                 <input
                   type="email"
                   value={email}
@@ -136,7 +136,7 @@ export default function Tools() {
               <p className="text-gray-400 mb-6">
                 Join 20,000+ investors receiving weekly deal breakdowns, market updates, and actionable investing tips straight to your inbox.
               </p>
-              <form onSubmit={handleNewsletter} className="flex gap-3">
+              <form onSubmit={handleNewsletter} className="flex flex-col sm:flex-row gap-3">
                 <input
                   type="email"
                   value={newsletterEmail}

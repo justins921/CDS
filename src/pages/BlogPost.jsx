@@ -146,12 +146,12 @@ export default function BlogPost() {
                 <p className="text-gray-400 text-sm mb-4">
                   Real estate investor with a $50M+ rental portfolio spanning 230+ doors. Helping 275K+ investors build wealth through rental properties.
                 </p>
-                <div className="flex gap-3">
+                <div className="flex gap-1">
                   <a
-                    href="https://youtube.com/@chandlerdavidsmith"
+                    href="https://youtube.com/@chandlerdavidsmith?si=EyIZoAP7oZDQOa0K"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-500 hover:text-gold-400 transition text-sm"
+                    className="px-2 py-2 text-gray-500 hover:text-gold-400 transition text-sm"
                   >
                     YouTube
                   </a>
@@ -159,7 +159,7 @@ export default function BlogPost() {
                     href="https://instagram.com/chandlerdavidsmith"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-500 hover:text-gold-400 transition text-sm"
+                    className="px-2 py-2 text-gray-500 hover:text-gold-400 transition text-sm"
                   >
                     Instagram
                   </a>
@@ -167,7 +167,7 @@ export default function BlogPost() {
                     href="https://tiktok.com/@chandlerdavidsmith"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-500 hover:text-gold-400 transition text-sm"
+                    className="px-2 py-2 text-gray-500 hover:text-gold-400 transition text-sm"
                   >
                     TikTok
                   </a>

@@ -141,7 +141,7 @@ export default function Calculator() {
       {/* Stats Bar */}
       <section className="py-12 bg-gold-500/10 border-y border-gold-500/20">
         <div className="section-container">
-          <div className="grid grid-cols-3 gap-8 text-center">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 text-center">
             <div>
               <p className="text-2xl md:text-3xl font-bold gradient-text">200K+</p>
               <p className="text-gray-400 text-sm mt-1">Downloads</p>

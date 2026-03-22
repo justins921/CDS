@@ -1,0 +1,90 @@
+import { useEffect } from 'react';
+import SEOHead from '../components/SEOHead';
+
+export default function Terms() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
+    <>
+      <SEOHead
+        title="Terms & Conditions | Chandler David Smith"
+        description="Terms and conditions for using chandlerdavidsmith.com and related products and services."
+      />
+
+      <section className="pt-32 pb-20 bg-navy-900 min-h-screen">
+        <div className="section-container max-w-3xl">
+          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Terms & Conditions</h1>
+          <p className="text-gray-500 mb-12">Last updated: March 2026</p>
+
+          <div className="space-y-10 text-gray-300">
+            <div>
+              <h2 className="text-xl font-bold text-white mb-4">Agreement to Terms</h2>
+              <p>
+                By accessing or using chandlerdavidsmith.com and any related products, services, or content (collectively, the "Services"), you agree to be bound by these Terms and Conditions. If you do not agree to these terms, do not use our Services. These terms constitute a legally binding agreement between you and Chandler David Smith.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-xl font-bold text-white mb-4">Use of Services</h2>
+              <p className="mb-3">
+                You agree to use our Services only for lawful purposes and in accordance with these Terms. You are responsible for maintaining the confidentiality of your account credentials.
+              </p>
+              <p>
+                You may not: (a) use the Services in any way that violates applicable laws or regulations; (b) reproduce, distribute, or resell any content from our courses, community, or other paid products without written permission; (c) attempt to gain unauthorized access to any part of the Services; (d) use the Services to transmit harmful, offensive, or illegal content.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-xl font-bold text-white mb-4">Intellectual Property</h2>
+              <p>
+                All content, materials, and resources provided through our Services — including but not limited to course videos, worksheets, calculator tools, blog posts, and community content — are the intellectual property of Chandler David Smith and are protected by copyright and other intellectual property laws. You are granted a limited, non-exclusive, non-transferable license to access and use purchased content for personal, non-commercial purposes only.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-xl font-bold text-white mb-4">Disclaimer</h2>
+              <p>
+                The information provided through our Services is for educational purposes only and does not constitute financial, legal, or investment advice. Real estate investing involves risk, and past performance does not guarantee future results. You should consult with qualified professionals before making any investment decisions. Chandler David Smith is not a licensed financial advisor, attorney, or CPA.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-xl font-bold text-white mb-4">Limitation of Liability</h2>
+              <p>
+                To the fullest extent permitted by law, Chandler David Smith and its affiliates shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or goodwill, arising out of or in connection with your use of the Services. Our total liability for any claim shall not exceed the amount you paid for the specific product or service giving rise to the claim.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-xl font-bold text-white mb-4">Governing Law</h2>
+              <p>
+                These Terms shall be governed by and construed in accordance with the laws of the State of Utah, without regard to its conflict of law principles. Any disputes arising from these Terms or your use of the Services shall be resolved in the state or federal courts located in Utah.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-xl font-bold text-white mb-4">Changes to Terms</h2>
+              <p>
+                We reserve the right to modify these Terms at any time. Changes will be effective immediately upon posting to our website. Your continued use of the Services after any changes constitutes acceptance of the updated Terms. We encourage you to review these Terms periodically.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-xl font-bold text-white mb-4">Contact</h2>
+              <p>
+                If you have any questions about these Terms and Conditions, please contact us at:
+              </p>
+              <p className="mt-3 text-gray-400">
+                Chandler David Smith<br />
+                chandlerdavidsmith.com<br />
+                Email: support@chandlerdavidsmith.com
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}

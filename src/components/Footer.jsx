@@ -21,7 +21,7 @@ export default function Footer() {
                 Get Weekly Real Estate Insights
               </h3>
               <p className="text-gray-400 mt-1 text-sm">
-                Join 50,000+ investors getting actionable tips every week.
+                Join 20,000+ investors getting actionable tips every week.
               </p>
             </div>
             <form onSubmit={handleSubscribe} className="flex w-full md:w-auto gap-3">

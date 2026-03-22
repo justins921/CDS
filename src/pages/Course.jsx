@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
-import { courseModules, testimonials } from '../data/siteData';
-
-const courseTestimonials = testimonials.filter((t) =>
-  ['Course Student', 'App User & Course Student', 'First-Time Investor'].includes(t.role)
-);
+import { courseModules, coursePricing, bonusCourses, testimonials } from '../data/siteData';
 
 const faqs = [
   {
@@ -13,19 +10,23 @@ const faqs = [
   },
   {
     question: 'How long do I have access?',
-    answer: 'You get lifetime access. Once you enroll, the course is yours forever — including all future updates and bonus content.',
+    answer: 'The stand-alone course includes lifetime access. Annual and monthly plans give you access as long as your subscription is active.',
   },
   {
     question: 'What format is the course in?',
-    answer: 'The course is 5+ hours of HD video lessons organized into 14 modules. You also get downloadable worksheets, checklists, and templates.',
+    answer: 'The course is 5+ hours of HD video lessons organized into 15 modules. You also get downloadable worksheets, the CDS Rental Calculator app, and rental analysis spreadsheets.',
   },
   {
     question: 'Is there a money-back guarantee?',
-    answer: 'Yes. If you complete the course and don\'t feel it was worth every penny, reach out within 30 days for a full refund. No questions asked.',
+    answer: "Yes. If you complete the course and don't feel it was worth every penny, reach out within 30 days for a full refund. No questions asked.",
   },
   {
     question: 'How is this different from free YouTube content?',
-    answer: 'YouTube gives you pieces of the puzzle. This course gives you the complete system — organized, step-by-step, with nothing held back. It\'s the difference between random clips and a structured education.',
+    answer: "YouTube gives you pieces of the puzzle. This course gives you the complete system — organized, step-by-step, with nothing held back. It's the difference between random clips and a structured education.",
+  },
+  {
+    question: 'What bonus courses are included?',
+    answer: 'Annual and Lifetime plans include the Seller Finance Masterclass, Cost Segregation Workshop, Mailer Marketing Blueprint, Deal Finding Mastery, and Tiny Homes Bootcamp — over $3,100 in additional value.',
   },
 ];
 
@@ -40,7 +41,7 @@ export default function Course() {
     <>
       <SEOHead
         title="Real Estate Investing Course | Chandler David Smith"
-        description="The complete A-to-Z real estate investing course. 14 modules, 5+ hours of content, 3,000+ students, and a 4.9/5.0 rating. Learn to build a rental portfolio from scratch."
+        description="Learn to create $100K+ in passive income through real estate investing. 15 modules, 5+ hours of content, 3,000+ students, 4.9/5.0 rating."
       />
 
       {/* Hero */}
@@ -50,8 +51,11 @@ export default function Course() {
             The Complete{' '}
             <span className="gradient-text">Real Estate Investing Course</span>
           </h1>
-          <p className="text-xl text-gray-300 mb-6">
-            14 Modules &middot; 5+ Hours &middot; Everything You Need
+          <p className="text-lg md:text-xl text-gray-300 mb-2">
+            Learn to create $100K+ in passive income through investing in real estate
+          </p>
+          <p className="text-base text-gray-400 mb-6">
+            15 Modules &middot; 5+ Hours &middot; Everything You Need
           </p>
           <div className="flex justify-center gap-8 mb-8">
             <div>
@@ -62,25 +66,42 @@ export default function Course() {
               <p className="text-2xl font-bold gradient-text">4.9/5.0</p>
               <p className="text-gray-400 text-sm">Rating</p>
             </div>
+            <div>
+              <p className="text-2xl font-bold gradient-text">15</p>
+              <p className="text-gray-400 text-sm">Modules</p>
+            </div>
           </div>
-          <a href="#" className="btn-primary text-lg px-8 py-4">
-            Enroll Now
+          <a href="#pricing" className="btn-primary text-lg px-8 py-4">
+            See Course Options
           </a>
         </div>
       </section>
 
-      {/* What You'll Learn */}
+      {/* Target Audience */}
       <section className="py-16 md:py-24 bg-navy-800/50">
         <div className="section-container">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="section-heading">What You'll Learn</h2>
-            <p className="text-gray-400 text-lg leading-relaxed">
-              This isn't another surface-level overview. It's a complete A-to-Z system for
-              building a profitable rental property portfolio — the exact strategies, frameworks,
-              and tools I used to build a $50M+ portfolio of 230+ doors. Every module is designed
-              to take you from wherever you are now to confidently acquiring and managing
-              cash-flowing rental properties.
-            </p>
+          <div className="text-center mb-12">
+            <h2 className="section-heading">Who This Course Is For</h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="card">
+              <h3 className="text-xl font-bold text-white mb-3">First-Time Investors</h3>
+              <ul className="space-y-2 text-gray-400 text-sm">
+                <li className="flex items-start gap-2"><span className="text-gold-400 mt-0.5">&#10003;</span> Learn fundamentals of real estate investing</li>
+                <li className="flex items-start gap-2"><span className="text-gold-400 mt-0.5">&#10003;</span> Master deal analysis and the purchase process</li>
+                <li className="flex items-start gap-2"><span className="text-gold-400 mt-0.5">&#10003;</span> Understand property maintenance and management</li>
+                <li className="flex items-start gap-2"><span className="text-gold-400 mt-0.5">&#10003;</span> Learn tax strategies from day one</li>
+              </ul>
+            </div>
+            <div className="card">
+              <h3 className="text-xl font-bold text-white mb-3">Experienced Investors</h3>
+              <ul className="space-y-2 text-gray-400 text-sm">
+                <li className="flex items-start gap-2"><span className="text-gold-400 mt-0.5">&#10003;</span> Scale operations and increase deal flow</li>
+                <li className="flex items-start gap-2"><span className="text-gold-400 mt-0.5">&#10003;</span> Improve property value with strategic upgrades</li>
+                <li className="flex items-start gap-2"><span className="text-gold-400 mt-0.5">&#10003;</span> Master creative financing and negotiation tactics</li>
+                <li className="flex items-start gap-2"><span className="text-gold-400 mt-0.5">&#10003;</span> Build systems for efficient portfolio management</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -91,7 +112,7 @@ export default function Course() {
           <div className="text-center mb-12">
             <h2 className="section-heading">Course Modules</h2>
             <p className="section-subheading mx-auto">
-              14 comprehensive modules taking you from beginner to confident investor.
+              15 comprehensive modules taking you from beginner to confident investor.
             </p>
           </div>
           <div className="max-w-3xl mx-auto space-y-4">
@@ -100,10 +121,58 @@ export default function Course() {
                 <div className="w-10 h-10 bg-gold-500 text-navy-900 font-bold rounded-lg flex items-center justify-center flex-shrink-0">
                   {index + 1}
                 </div>
-                <div>
+                <div className="flex-1">
                   <h3 className="text-white font-semibold mb-1">{module.title}</h3>
                   <p className="text-gray-400 text-sm">{module.description}</p>
                 </div>
+                {module.videos && (
+                  <span className="text-gray-500 text-xs whitespace-nowrap">{module.videos} videos</span>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* What's Included */}
+      <section className="py-16 md:py-24 bg-navy-800/50">
+        <div className="section-container">
+          <div className="text-center mb-12">
+            <h2 className="section-heading">What's Included</h2>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {[
+              '15 detailed video modules (5+ hours)',
+              'Lesson resources and downloadables',
+              'CDS Rental Calculator app (free Pro upgrade with membership)',
+              'Rental analysis spreadsheet',
+              'Property classification guides',
+              'LLC setup documentation',
+            ].map((item) => (
+              <div key={item} className="flex items-start gap-3">
+                <span className="text-gold-400 mt-0.5 flex-shrink-0">&#10003;</span>
+                <span className="text-gray-300 text-sm">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Bonus Courses */}
+      <section className="py-16 md:py-24">
+        <div className="section-container">
+          <div className="text-center mb-12">
+            <h2 className="section-heading">Bonus Courses</h2>
+            <p className="section-subheading mx-auto">
+              Included with Annual and Lifetime plans — over $3,100 in additional value.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {bonusCourses.map((course) => (
+              <div key={course.title} className="card text-center">
+                <h3 className="text-white font-semibold mb-1">{course.title}</h3>
+                <p className="text-gray-500 text-xs mb-2">{course.lessons} lessons</p>
+                <p className="text-gold-400 text-sm font-medium">${course.value} value</p>
               </div>
             ))}
           </div>
@@ -120,7 +189,7 @@ export default function Course() {
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
-            {courseTestimonials.map((testimonial) => (
+            {testimonials.slice(0, 3).map((testimonial) => (
               <div key={testimonial.name} className="card">
                 <div className="text-gold-400 mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                 <p className="text-gray-300 text-sm mb-4 italic">"{testimonial.text}"</p>
@@ -135,45 +204,40 @@ export default function Course() {
       </section>
 
       {/* Pricing */}
-      <section className="py-16 md:py-24">
+      <section id="pricing" className="py-16 md:py-24">
         <div className="section-container">
-          <div className="max-w-lg mx-auto">
-            <div className="bg-navy-800 border border-gold-500/30 rounded-2xl p-8 text-center">
-              <p className="text-gold-400 font-semibold uppercase tracking-wide text-sm mb-2">
-                Lifetime Access
-              </p>
-              <h2 className="text-4xl font-bold text-white mb-2">$497</h2>
-              <p className="text-gray-400 mb-6">One-time payment. Yours forever.</p>
-              <ul className="text-left text-gray-300 text-sm space-y-3 mb-8">
-                <li className="flex items-start gap-2">
-                  <span className="text-gold-400 mt-0.5">&#10003;</span>
-                  14 in-depth video modules (5+ hours)
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-gold-400 mt-0.5">&#10003;</span>
-                  Downloadable worksheets & templates
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-gold-400 mt-0.5">&#10003;</span>
-                  Lifetime access + future updates
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-gold-400 mt-0.5">&#10003;</span>
-                  30-day money-back guarantee
-                </li>
-              </ul>
-              <a href="#" className="btn-primary w-full text-lg py-4 mb-4">
-                Enroll Now
-              </a>
-              <div className="bg-gold-500/10 border border-gold-500/20 rounded-lg p-3 mt-4">
-                <p className="text-gold-400 text-sm font-medium">
-                  Included FREE with annual Creative Cashflow Club membership
+          <div className="text-center mb-12">
+            <h2 className="section-heading">Choose Your Plan</h2>
+            <p className="section-subheading mx-auto">
+              Every plan includes the complete 15-module course with 5+ hours of video.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            {coursePricing.map((plan) => (
+              <div
+                key={plan.label}
+                className={`bg-navy-800 border rounded-2xl p-6 text-center relative ${
+                  plan.featured ? 'border-gold-500/30' : 'border-navy-600/50'
+                }`}
+              >
+                {plan.featured && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gold-500 text-navy-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide whitespace-nowrap">
+                    Best Value
+                  </div>
+                )}
+                <p className="text-gray-400 font-semibold uppercase tracking-wide text-xs mb-2">
+                  {plan.label}
                 </p>
-                <a href="/community" className="text-gold-400/70 text-xs underline hover:text-gold-300">
-                  Learn more about the Club &rarr;
+                <h3 className="text-3xl font-bold text-white mb-1">
+                  ${plan.price.toLocaleString()}
+                  {plan.period && <span className="text-base text-gray-400">{plan.period}</span>}
+                </h3>
+                <p className="text-gray-500 text-xs mb-6">{plan.description}</p>
+                <a href="#" className={plan.featured ? 'btn-primary w-full py-3 text-sm' : 'btn-secondary w-full py-3 text-sm'}>
+                  Enroll Now
                 </a>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -209,8 +273,8 @@ export default function Course() {
           <p className="section-subheading mx-auto mb-8">
             Join 3,000+ students who are already using this system to acquire cash-flowing rental properties.
           </p>
-          <a href="#" className="btn-primary text-lg px-8 py-4">
-            Enroll Now — $497
+          <a href="#pricing" className="btn-primary text-lg px-8 py-4">
+            See Course Options
           </a>
         </div>
       </section>

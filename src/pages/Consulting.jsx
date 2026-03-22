@@ -33,7 +33,7 @@ export default function Consulting() {
             <span className="gradient-text">Real Estate Strategy</span>
           </h1>
           <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8">
-            60-minute 1-on-1 calls with Chandler. Get direct, actionable advice from an investor who owns 230+ doors and manages a $50M+ portfolio.
+            Bring your real estate deals, business challenges, and questions — and we'll map out what to focus on, what to cut, and your next best steps. 60-minute calls with an investor who owns 230+ doors and manages a $50M+ portfolio.
           </p>
           <a href="#pricing" className="btn-primary text-lg px-8 py-4">
             Book a Call

@@ -1,33 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
-
-const features = [
-  {
-    title: 'Cash-on-Cash Return Analysis',
-    description: 'Instantly calculate your true return on invested capital so you know exactly what your money is earning.',
-  },
-  {
-    title: 'Cap Rate Calculator',
-    description: 'Evaluate any property\'s capitalization rate to compare deals and assess market value accurately.',
-  },
-  {
-    title: 'Monthly Cash Flow Projections',
-    description: 'See projected monthly and annual cash flow with detailed income and expense breakdowns.',
-  },
-  {
-    title: 'Mortgage & Financing Calculator',
-    description: 'Model different loan scenarios, interest rates, and down payments to find your ideal financing structure.',
-  },
-  {
-    title: 'Repair Cost Estimator',
-    description: 'Estimate rehab costs with our built-in calculator so you never overpay for a value-add deal.',
-  },
-  {
-    title: 'Investment Comparison Tool',
-    description: 'Compare multiple properties side by side to identify the strongest deal in your pipeline.',
-  },
-];
+import { calculatorFeatures } from '../data/siteData';
 
 const steps = [
   {
@@ -89,7 +63,7 @@ export default function Calculator() {
                 200K+ downloads &middot; 4.7&#9733; rating
               </p>
               <p className="text-gray-400 text-lg mb-8">
-                Analyze any rental deal in minutes. Get instant cash flow projections, return calculations, and the confidence to make smart investment decisions.
+                Download the same spreadsheet that I use to run my numbers and get a 29% return. Review cap rate, cash-on-cash return, and other important metrics in minutes.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
@@ -131,7 +105,7 @@ export default function Calculator() {
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((feature) => (
+            {calculatorFeatures.map((feature) => (
               <div key={feature.title} className="card">
                 <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
                 <p className="text-gray-400 text-sm">{feature.description}</p>

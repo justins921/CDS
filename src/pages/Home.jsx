@@ -5,7 +5,7 @@ import SocialProofBar from '../components/SocialProofBar';
 import ProductCard from '../components/ProductCard';
 import TestimonialCard from '../components/TestimonialCard';
 import CTASection from '../components/CTASection';
-import { testimonials } from '../data/siteData';
+import { testimonials, youtubeVideos } from '../data/siteData';
 
 export default function Home() {
   useEffect(() => {
@@ -147,7 +147,7 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {[1, 2, 3].map((i) => (
+            {youtubeVideos.map((video, i) => (
               <div key={i} className="card p-0 overflow-hidden">
                 <div className="aspect-video bg-gray-700 flex items-center justify-center">
                   <span className="text-gray-400 text-sm">
@@ -156,10 +156,10 @@ export default function Home() {
                 </div>
                 <div className="p-5">
                   <h3 className="text-white font-semibold mb-1">
-                    Video Title Placeholder {i}
+                    {video.title}
                   </h3>
                   <p className="text-gray-500 text-xs">
-                    Rental property investing tips and strategies
+                    Real estate investing strategies and deal breakdowns
                   </p>
                 </div>
               </div>
@@ -168,7 +168,7 @@ export default function Home() {
 
           <div className="text-center mt-8">
             <a
-              href="https://youtube.com/@chandlerdavidsmith"
+              href="https://youtube.com/@chandlerdavidsmith?si=EyIZoAP7oZDQOa0K"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary"

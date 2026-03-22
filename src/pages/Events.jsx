@@ -61,9 +61,22 @@ export default function Events() {
                     {featuredEvent.location}
                   </span>
                 </div>
-                <p className="text-gray-300 text-lg mb-8 leading-relaxed">
+                {featuredEvent.capacity && (
+                  <div className="flex flex-wrap gap-4 mb-4">
+                    <span className="text-gray-400 text-sm">{featuredEvent.capacity}</span>
+                    {featuredEvent.spotsRemaining && (
+                      <span className="text-amber-400 text-sm font-semibold">{featuredEvent.spotsRemaining}</span>
+                    )}
+                  </div>
+                )}
+                <p className="text-gray-300 text-lg mb-4 leading-relaxed">
                   {featuredEvent.description}
                 </p>
+                {featuredEvent.details && (
+                  <p className="text-gray-400 mb-8 leading-relaxed">
+                    {featuredEvent.details}
+                  </p>
+                )}
                 <div className="flex flex-wrap gap-4">
                   <Link to={`/events/${featuredEvent.slug}`} className="btn-primary">
                     Apply Now

@@ -134,7 +134,7 @@ export default function Tools() {
               </div>
               <h3 className="text-xl font-bold text-white mb-3">Get Weekly Real Estate Insights</h3>
               <p className="text-gray-400 mb-6">
-                Join thousands of investors receiving weekly deal breakdowns, market updates, and actionable investing tips straight to your inbox every Tuesday.
+                Join 20,000+ investors receiving weekly deal breakdowns, market updates, and actionable investing tips straight to your inbox.
               </p>
               <form onSubmit={handleNewsletter} className="flex gap-3">
                 <input
@@ -163,10 +163,10 @@ export default function Tools() {
               </div>
               <h3 className="text-xl font-bold text-white mb-3">YouTube Channel</h3>
               <p className="text-gray-400 mb-6">
-                275K+ subscribers learning real estate investing through in-depth deal analyses, market updates, property tours, and investing tutorials.
+                275K+ subscribers learning real estate investing, sales, and wealth-building strategies shared through real-world experience and deal breakdowns.
               </p>
               <a
-                href="https://youtube.com/@chandlerdavidsmith"
+                href="https://youtube.com/@chandlerdavidsmith?si=EyIZoAP7oZDQOa0K"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary"

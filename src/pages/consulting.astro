@@ -1,0 +1,160 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { consultingPackages } from '../data/siteData';
+import { images } from '../data/images';
+
+const benefits = [
+  'Personalized investment strategy tailored to your goals and market',
+  'Deal analysis and review on properties you are currently evaluating',
+  'Portfolio optimization to maximize cash flow and equity growth',
+  'Scaling roadmap to go from where you are now to where you want to be',
+  'Market selection guidance based on real data and experience',
+  'Financing strategy to leverage the right loan products and structures',
+];
+
+const whoItsFor = [
+  { title: 'New Investors', description: 'You want to buy your first property but need a clear strategy and someone to validate your plan before you commit.', icon: '🏠' },
+  { title: 'Growing Investors', description: 'You own a few properties and want expert guidance on scaling your portfolio faster without making costly mistakes.', icon: '📈' },
+  { title: 'Experienced Investors', description: 'You have a large portfolio and need high-level strategy on optimization, tax planning, and next-level growth.', icon: '🏢' },
+];
+
+const credentialStats = [
+  { value: '$50M+', label: 'Portfolio Value' },
+  { value: '230+', label: 'Doors Owned' },
+  { value: '275K+', label: 'YouTube Subscribers' },
+  { value: '8+', label: 'Years Investing' },
+];
+---
+
+<Layout title="1-on-1 Real Estate Consulting | Chandler David Smith">
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900"></div>
+    <div class="section-container relative py-20 md:py-32 text-center">
+      <span class="inline-block bg-gold-500/10 text-gold-400 text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
+        1-on-1 Consulting
+      </span>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 max-w-3xl mx-auto">
+        Get Direct Access to
+        <span class="gradient-text"> Chandler's Strategy</span>
+      </h1>
+      <p class="text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto mb-8">
+        Skip the guesswork. Get personalized advice from someone who has built a $50M+ real estate portfolio from scratch.
+      </p>
+      <a href="#pricing" class="btn-primary">Book a Call</a>
+    </div>
+  </section>
+
+  <!-- What You Get -->
+  <section class="bg-navy-900">
+    <div class="section-container py-16 md:py-24">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="section-heading mb-8">What You Get</h2>
+          <ul class="space-y-4">
+            {benefits.map((benefit) => (
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-gold-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-gray-300">{benefit}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="flex justify-center">
+          <img
+            src={images.consultingHeadshot}
+            alt="Chandler David Smith consulting"
+            class="w-full max-w-md rounded-2xl shadow-xl"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who It's For -->
+  <section class="bg-navy-800/50 border-t border-b border-navy-700/40">
+    <div class="section-container py-16 md:py-24">
+      <div class="text-center mb-12">
+        <h2 class="section-heading">Who It's For</h2>
+        <p class="section-subheading mx-auto mt-2">Whether you're just starting or scaling, a strategy call can save you time and money.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        {whoItsFor.map((item) => (
+          <div class="card text-center p-8">
+            <span class="text-4xl mb-4 block">{item.icon}</span>
+            <h3 class="text-white font-bold text-lg mb-2">{item.title}</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="bg-navy-900">
+    <div class="section-container py-16 md:py-24">
+      <div class="text-center mb-12">
+        <h2 class="section-heading">Consulting Packages</h2>
+        <p class="section-subheading mx-auto mt-2">60-minute strategy calls with Chandler.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        {consultingPackages.map((pkg, i) => {
+          const savingsPerCall = pkg.calls > 1 ? (500 * pkg.calls - pkg.price) : 0;
+          const isPopular = i === 1;
+          return (
+            <div class={`card p-8 text-center relative ${isPopular ? 'border-gold-500/50 ring-1 ring-gold-500/20' : ''}`}>
+              {isPopular && (
+                <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gold-500 text-navy-900 text-xs font-bold px-4 py-1 rounded-full">
+                  Most Popular
+                </span>
+              )}
+              <h3 class="text-white font-bold text-xl mb-2">{pkg.label}</h3>
+              <p class="text-gray-400 text-sm mb-4">{pkg.description}</p>
+              <p class="text-4xl font-bold gradient-text mb-1">${pkg.price}</p>
+              {savingsPerCall > 0 && (
+                <p class="text-green-400 text-sm font-medium">Save ${savingsPerCall}</p>
+              )}
+              <a href="#calendly" class="btn-primary w-full mt-6">Book Now</a>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Calendly Placeholder -->
+  <section id="calendly" class="bg-navy-800/50 border-t border-b border-navy-700/40">
+    <div class="section-container py-16 md:py-24 text-center">
+      <h2 class="section-heading mb-4">Schedule Your Call</h2>
+      <p class="section-subheading mx-auto mb-8">Choose a time that works for you.</p>
+      <div class="bg-navy-700/50 rounded-2xl p-12 max-w-2xl mx-auto border border-navy-600/50">
+        <p class="text-gray-400">Calendly scheduling widget will load here.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Credentials -->
+  <section class="bg-navy-900">
+    <div class="section-container py-12 md:py-16">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        {credentialStats.map((stat) => (
+          <div>
+            <p class="text-2xl md:text-3xl font-bold gradient-text">{stat.value}</p>
+            <p class="text-gray-400 text-sm mt-1">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="bg-gradient-to-br from-navy-800 via-navy-900 to-navy-800 border-t border-navy-700/40">
+    <div class="section-container py-16 md:py-24 text-center">
+      <h2 class="section-heading">Ready to Get Expert Guidance?</h2>
+      <p class="section-subheading mx-auto mt-2 mb-8">One call can change the trajectory of your entire investing career.</p>
+      <a href="#pricing" class="btn-primary">Book Your Call Now</a>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,54 @@
+---
+import Header from '../components/Header.jsx';
+import Footer from '../components/Footer.jsx';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  ogType?: string;
+}
+
+const {
+  title,
+  description = 'Chandler David Smith owns $50M+ in rental real estate. Learn how to build wealth through real estate investing with free tools, courses, and community.',
+  ogImage,
+  ogType = 'website',
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://chandlerdavidsmith.com');
+const currentPath = Astro.url.pathname;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0f1e" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={ogType} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
+    <link rel="canonical" href={canonicalURL} />
+  </head>
+  <body class="bg-navy-900 text-white antialiased">
+    <div class="min-h-screen flex flex-col">
+      <Header client:load currentPath={currentPath} />
+      <main class="flex-1">
+        <slot />
+      </main>
+      <Footer client:load />
+    </div>
+  </body>
+</html>

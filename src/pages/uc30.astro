@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const benefits = [
+  'Build unstoppable discipline in 30 days',
+  'Daily challenges that compound into real results',
+  'Join thousands who have completed the challenge',
+  'Free to start — just bring your commitment',
+  'Accountability and community support',
+  'Develop habits that carry into your investing journey',
+];
+---
+
+<Layout title="UC30 Challenge | Chandler David Smith">
+  <section class="min-h-screen flex items-center justify-center bg-gradient-to-b from-navy-900 via-navy-800 to-navy-900">
+    <div class="section-container py-20 md:py-32 text-center">
+      <span class="inline-block bg-gold-500/10 text-gold-400 text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
+        30-Day Challenge
+      </span>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 max-w-3xl mx-auto">
+        The <span class="gradient-text">UC30 Challenge</span>
+      </h1>
+      <p class="text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto mb-8">
+        30 days. No excuses. The UC30 Challenge is designed to push you past your limits, build unbreakable discipline, and create the momentum you need to take control of your life and your finances.
+      </p>
+      <a
+        href="https://uc30.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-primary text-lg px-8 py-4 mb-12 inline-block"
+      >
+        Start the Challenge
+      </a>
+      <div class="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto text-left">
+        {benefits.map((benefit) => (
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-gold-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="text-gray-300">{benefit}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,215 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SocialProofBar from '../components/SocialProofBar.astro';
+import ProductCard from '../components/ProductCard.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import { testimonials, youtubeVideos, stats } from '../data/siteData';
+import { images } from '../data/images';
+---
+
+<Layout title="Chandler David Smith | Real Estate Investor & Educator">
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-navy-900 via-navy-900 to-navy-800"></div>
+    <div class="section-container relative py-20 md:py-32">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="inline-block bg-gold-500/10 text-gold-400 text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
+            Real Estate Investor & Educator
+          </span>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+            $50M+ in Rental Real Estate.
+            <span class="gradient-text"> Here's How.</span>
+          </h1>
+          <p class="text-lg text-gray-300 leading-relaxed mb-8 max-w-lg">
+            I built a portfolio of 230+ doors, 170+ storage units, and multiple commercial properties. Now I teach everyday people how to do the same with free tools, courses, and community.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/calculator" class="btn-primary">Try the Free Calculator</a>
+            <a href="/course" class="btn-secondary">Explore the Course</a>
+          </div>
+        </div>
+        <div class="flex justify-center md:justify-end">
+          <img
+            src={images.headshot}
+            alt="Chandler David Smith"
+            class="w-72 md:w-96 rounded-2xl shadow-2xl"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof Bar -->
+  <SocialProofBar />
+
+  <!-- Where Should You Start -->
+  <section class="bg-navy-900">
+    <div class="section-container py-16 md:py-24">
+      <div class="text-center mb-12">
+        <h2 class="section-heading">Where Should You Start?</h2>
+        <p class="section-subheading mx-auto mt-2">Whether you're brand new or scaling a portfolio, there's a clear next step for you.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Beginner -->
+        <div class="card text-center p-8">
+          <span class="inline-block bg-green-500/10 text-green-400 text-xs font-semibold px-3 py-1 rounded-full mb-4">Beginner</span>
+          <h3 class="text-xl font-bold text-white mb-3">Just Getting Started</h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">New to real estate investing? Start with the free calculator to learn how deals work, then check out the YouTube channel for free education.</p>
+          <a href="/calculator" class="btn-primary w-full">Start with the Calculator</a>
+        </div>
+        <!-- Intermediate -->
+        <div class="card text-center p-8 border-gold-500/30">
+          <span class="inline-block bg-gold-500/10 text-gold-400 text-xs font-semibold px-3 py-1 rounded-full mb-4">Intermediate</span>
+          <h3 class="text-xl font-bold text-white mb-3">Ready to Buy</h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">You understand the basics and want a step-by-step system to buy your first (or next) rental property with confidence.</p>
+          <a href="/course" class="btn-primary w-full">Explore the Course</a>
+        </div>
+        <!-- Advanced -->
+        <div class="card text-center p-8">
+          <span class="inline-block bg-purple-500/10 text-purple-400 text-xs font-semibold px-3 py-1 rounded-full mb-4">Advanced</span>
+          <h3 class="text-xl font-bold text-white mb-3">Scaling Your Portfolio</h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">You own properties and want to scale faster. Get deal flow, expert feedback, and a network of serious investors.</p>
+          <a href="/community" class="btn-primary w-full">Join the Community</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- YouTube Section -->
+  <section class="bg-navy-800/50 border-t border-b border-navy-700/40">
+    <div class="section-container py-16 md:py-24">
+      <div class="text-center mb-12">
+        <h2 class="section-heading">Learn Free on YouTube</h2>
+        <p class="section-subheading mx-auto mt-2">275K+ subscribers learning real estate investing every week.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        {[images.videoThumb1, images.videoThumb2, images.videoThumb3].map((thumb, i) => (
+          <div class="group cursor-pointer">
+            <div class="relative rounded-xl overflow-hidden mb-4">
+              <img src={thumb} alt={youtubeVideos[i].title} class="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/20 transition-colors">
+                <div class="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center">
+                  <svg class="w-6 h-6 text-navy-900 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <h3 class="text-white font-semibold text-sm group-hover:text-gold-400 transition-colors">{youtubeVideos[i].title}</h3>
+          </div>
+        ))}
+      </div>
+      <div class="text-center mt-10">
+        <a href="https://youtube.com/@chandlerdavidsmith" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+          Subscribe on YouTube
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section class="bg-navy-900">
+    <div class="section-container py-16 md:py-24">
+      <div class="text-center mb-12">
+        <h2 class="section-heading">Tools & Resources</h2>
+        <p class="section-subheading mx-auto mt-2">Everything you need to start, grow, and scale your rental portfolio.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <ProductCard
+          title="Rental Calculator"
+          description="Analyze any rental property in minutes. 200K+ downloads and counting."
+          icon="🧮"
+          link="/calculator"
+          linkText="Try It Free"
+          badge="Free"
+        />
+        <ProductCard
+          title="Investing Course"
+          description="70+ video lessons covering every step of buying and managing rental properties."
+          icon="🎓"
+          link="/course"
+          linkText="View Course"
+        />
+        <ProductCard
+          title="Creative Cashflow Club"
+          description="Private investor community with deal flow, monthly trainings, and direct access to Chandler."
+          icon="👥"
+          link="/community"
+          linkText="Join the Club"
+        />
+        <ProductCard
+          title="Live Events"
+          description="Immersive retreats with hands-on training, property tours, and networking."
+          icon="🎤"
+          link="/events"
+          linkText="See Events"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="bg-navy-800/50 border-t border-b border-navy-700/40">
+    <div class="section-container py-16 md:py-24">
+      <div class="text-center mb-12">
+        <h2 class="section-heading">What Students Are Saying</h2>
+        <p class="section-subheading mx-auto mt-2">Real results from real people taking action.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        {testimonials.slice(0, 3).map((t) => (
+          <TestimonialCard name={t.name} role={t.role} text={t.text} image={t.image} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter CTA -->
+  <section class="bg-gradient-to-br from-navy-800 via-navy-900 to-navy-800">
+    <div class="section-container py-16 md:py-24 text-center">
+      <h2 class="section-heading">Join 20,000+ Investors</h2>
+      <p class="section-subheading mx-auto mt-2 mb-8">Get weekly deal breakdowns, market insights, and investing strategies delivered to your inbox.</p>
+      <form action="#" method="POST" class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+          class="flex-1 px-4 py-3 rounded-lg bg-navy-700 border border-navy-600 text-white placeholder-gray-400 focus:outline-none focus:border-gold-500"
+        />
+        <button type="submit" class="btn-primary whitespace-nowrap">Subscribe</button>
+      </form>
+      <p class="text-gray-500 text-xs mt-4">No spam. Unsubscribe anytime.</p>
+    </div>
+  </section>
+
+  <!-- About Preview -->
+  <section class="bg-navy-900">
+    <div class="section-container py-16 md:py-24">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="section-heading">About Chandler</h2>
+          <p class="text-gray-300 leading-relaxed mt-4 mb-6">
+            From a single house hack in 2017 to a $50M+ portfolio spanning 230+ residential doors, 170+ storage units, and commercial properties. I share everything I've learned so you can build real wealth through real estate.
+          </p>
+          <div class="grid grid-cols-3 gap-6 mb-8">
+            {stats.slice(0, 3).map((stat) => (
+              <div>
+                <p class="text-2xl font-bold gradient-text">{stat.value}</p>
+                <p class="text-gray-400 text-xs mt-1">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+          <a href="/about" class="btn-secondary">Read My Story</a>
+        </div>
+        <div class="flex justify-center md:justify-end">
+          <img
+            src={images.headshot}
+            alt="Chandler David Smith"
+            class="w-64 md:w-80 rounded-2xl shadow-xl"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

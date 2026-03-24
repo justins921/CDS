@@ -1,0 +1,25 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogFilter from '../../components/BlogFilter.jsx';
+import { sampleBlogPosts, blogCategories } from '../../data/siteData';
+---
+
+<Layout title="Real Estate Investing Blog | Chandler David Smith" description="Real estate investing tips, deal analysis breakdowns, and strategies from a $50M+ portfolio owner. Learn how to build wealth through rental properties.">
+
+  <!-- Hero -->
+  <section class="relative pt-32 pb-16 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gold-500/5 via-transparent to-transparent"></div>
+    <div class="section-container relative z-10 text-center">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+        Real Estate Investing <span class="gradient-text">Blog</span>
+      </h1>
+      <p class="section-subheading mx-auto">
+        Actionable insights, deal breakdowns, and strategies from building a $50M+ rental portfolio.
+      </p>
+    </div>
+  </section>
+
+  <!-- Blog Filter + Posts -->
+  <BlogFilter client:load posts={sampleBlogPosts} categories={blogCategories} />
+
+</Layout>

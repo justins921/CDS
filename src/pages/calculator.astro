@@ -1,0 +1,171 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { calculatorFeatures } from '../data/siteData';
+import { images } from '../data/images';
+
+const steps = [
+  { number: 1, title: 'Enter Property Details', description: 'Input the purchase price, rent estimates, expenses, and financing terms. Takes less than 2 minutes.' },
+  { number: 2, title: 'Review the Analysis', description: 'Get a full breakdown of cash flow, returns, and key metrics — all calculated instantly.' },
+  { number: 3, title: 'Make Confident Decisions', description: 'Know exactly whether a deal works before you make an offer. No more guessing.' },
+];
+
+const reviews = [
+  { text: "This app paid for itself on my first deal. I caught a negative cash flow property that looked good on the surface. Saved me thousands.", author: 'Mike D.', rating: '5/5' },
+  { text: "I've tried every rental calculator out there. This is the only one that's actually intuitive and gives me the numbers I need fast.", author: 'Jessica P.', rating: '5/5' },
+  { text: "Use this app every single day to run deals. It's become the backbone of my acquisition process.", author: 'Carlos R.', rating: '5/5' },
+];
+---
+
+<Layout
+  title="Rental Property Calculator App | Chandler David Smith"
+  description="The #1 rental property calculator with 200K+ downloads. Analyze rental deals in minutes with cash flow projections, cap rate, and cash-on-cash return calculations."
+>
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-navy-900 via-navy-900 to-navy-800"></div>
+    <div class="section-container relative py-20 md:py-32">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="inline-block bg-gold-500/10 text-gold-400 text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
+            #1 Rental Property Calculator
+          </span>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+            Analyze Any Deal in
+            <span class="gradient-text"> Minutes</span>
+          </h1>
+          <p class="text-lg text-gray-300 leading-relaxed mb-8 max-w-lg">
+            The same calculator I use to evaluate every property in my $50M+ portfolio. 200K+ investors trust it to make smarter decisions.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer">
+              <img src={images.appStore} alt="Download on the App Store" class="h-12" />
+            </a>
+            <a href="https://play.google.com" target="_blank" rel="noopener noreferrer">
+              <img src={images.googlePlay} alt="Get it on Google Play" class="h-12" />
+            </a>
+            <a href="#" class="inline-flex items-center gap-2 bg-navy-700 hover:bg-navy-600 text-white font-medium px-6 py-3 rounded-lg transition-colors">
+              <img src={images.desktopIcon} alt="" class="w-5 h-5" />
+              Desktop Version
+            </a>
+          </div>
+        </div>
+        <div class="flex justify-center md:justify-end">
+          <img
+            src={images.calculatorApp}
+            alt="CDS Rental Property Calculator App"
+            class="w-72 md:w-96 drop-shadow-2xl"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="bg-navy-900">
+    <div class="section-container py-16 md:py-24">
+      <div class="text-center mb-12">
+        <h2 class="section-heading">Everything You Need to Analyze a Deal</h2>
+        <p class="section-subheading mx-auto mt-2">Powerful features designed for real-world investors.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {calculatorFeatures.map((feature) => (
+          <div class="card p-6">
+            <div class="w-10 h-10 rounded-lg bg-gold-500/10 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-gold-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h3 class="text-white font-bold mb-2">{feature.title}</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="bg-navy-800/50 border-t border-b border-navy-700/40">
+    <div class="section-container py-16 md:py-24">
+      <div class="text-center mb-12">
+        <h2 class="section-heading">How It Works</h2>
+        <p class="section-subheading mx-auto mt-2">Three simple steps to know if a deal is worth pursuing.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        {steps.map((step) => (
+          <div class="text-center">
+            <div class="w-14 h-14 rounded-full bg-gold-500/10 flex items-center justify-center mx-auto mb-5">
+              <span class="text-2xl font-bold gradient-text">{step.number}</span>
+            </div>
+            <h3 class="text-white font-bold text-lg mb-2">{step.title}</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">{step.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="bg-navy-900 border-t border-b border-navy-700/40">
+    <div class="section-container py-10 md:py-14">
+      <div class="grid grid-cols-3 gap-8 text-center">
+        <div>
+          <p class="text-2xl md:text-3xl font-bold gradient-text">200K+</p>
+          <p class="text-gray-400 text-sm mt-1">Downloads</p>
+        </div>
+        <div>
+          <p class="text-2xl md:text-3xl font-bold gradient-text">4.7&#9733;</p>
+          <p class="text-gray-400 text-sm mt-1">Rating</p>
+        </div>
+        <div>
+          <p class="text-2xl md:text-3xl font-bold gradient-text">All Devices</p>
+          <p class="text-gray-400 text-sm mt-1">iOS, Android & Desktop</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="bg-navy-900">
+    <div class="section-container py-16 md:py-24">
+      <div class="text-center mb-12">
+        <h2 class="section-heading">What Investors Are Saying</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        {reviews.map((review) => (
+          <div class="card p-6">
+            <div class="flex items-center gap-1 mb-4">
+              {Array.from({ length: 5 }).map(() => (
+                <svg class="w-5 h-5 text-gold-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+            <p class="text-gray-300 italic text-sm leading-relaxed mb-4">&ldquo;{review.text}&rdquo;</p>
+            <p class="text-white font-medium text-sm">{review.author}</p>
+            <p class="text-gray-500 text-xs">{review.rating}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-gradient-to-br from-navy-800 via-navy-900 to-navy-800 border-t border-navy-700/40">
+    <div class="section-container py-16 md:py-24 text-center">
+      <h2 class="section-heading">Ready to Analyze Your Next Deal?</h2>
+      <p class="section-subheading mx-auto mt-2 mb-8">Download the calculator and start making data-driven investment decisions today.</p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer">
+          <img src={images.appStore} alt="Download on the App Store" class="h-12" />
+        </a>
+        <a href="https://play.google.com" target="_blank" rel="noopener noreferrer">
+          <img src={images.googlePlay} alt="Get it on Google Play" class="h-12" />
+        </a>
+        <a href="#" class="inline-flex items-center gap-2 bg-navy-700 hover:bg-navy-600 text-white font-medium px-6 py-3 rounded-lg transition-colors">
+          <img src={images.desktopIcon} alt="" class="w-5 h-5" />
+          Desktop Version
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

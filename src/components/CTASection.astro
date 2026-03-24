@@ -1,0 +1,29 @@
+---
+interface Props {
+  heading: string;
+  subheading?: string;
+  primaryCTA?: string;
+  primaryLink?: string;
+  secondaryCTA?: string;
+  secondaryLink?: string;
+}
+
+const { heading, subheading, primaryCTA, primaryLink, secondaryCTA, secondaryLink } = Astro.props;
+---
+
+<section class="bg-gradient-to-br from-navy-800 via-navy-900 to-navy-800 border-t border-b border-navy-700/40">
+  <div class="section-container py-16 md:py-24 text-center">
+    <h2 class="section-heading">{heading}</h2>
+    {subheading && (
+      <p class="section-subheading mx-auto mt-2 mb-8">{subheading}</p>
+    )}
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+      {primaryCTA && primaryLink && (
+        <a href={primaryLink} class="btn-primary">{primaryCTA}</a>
+      )}
+      {secondaryCTA && secondaryLink && (
+        <a href={secondaryLink} class="btn-secondary">{secondaryCTA}</a>
+      )}
+    </div>
+  </div>
+</section>

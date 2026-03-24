@@ -1,16 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
 import { navLinks } from '../data/siteData';
 import { images } from '../data/images';
 
-export default function Header() {
+export default function Header({ currentPath }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const location = useLocation();
-
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [location]);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -23,9 +17,14 @@ export default function Header() {
     return () => { document.body.style.overflow = ''; };
   }, [mobileOpen]);
 
-  const linkClass = ({ isActive }) =>
+  const isActive = (href) => {
+    const path = typeof window !== 'undefined' ? window.location.pathname : currentPath;
+    return path === href || (href !== '/' && path.startsWith(href));
+  };
+
+  const linkClass = (href) =>
     `text-sm font-medium transition-colors duration-200 ${
-      isActive ? 'text-gold-400' : 'text-gray-300 hover:text-white'
+      isActive(href) ? 'text-gold-400' : 'text-gray-300 hover:text-white'
     }`;
 
   return (
@@ -40,21 +39,21 @@ export default function Header() {
         }`}
       >
         <div className="section-container flex items-center justify-between h-16 md:h-20">
-          <Link to="/" className="relative z-[60] flex items-center gap-2">
+          <a href="/" className="relative z-[60] flex items-center gap-2">
             <img src={images.logo} alt="CDS" className="h-8 md:h-10 w-auto" />
-          </Link>
+          </a>
 
           <nav className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
-              <NavLink key={link.href} to={link.href} className={linkClass}>
+              <a key={link.href} href={link.href} className={linkClass(link.href)}>
                 {link.label}
-              </NavLink>
+              </a>
             ))}
           </nav>
 
-          <Link to="/tools" className="hidden md:inline-flex btn-primary text-sm px-5 py-2">
+          <a href="/tools" className="hidden md:inline-flex btn-primary text-sm px-5 py-2">
             Join Free
-          </Link>
+          </a>
 
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -80,7 +79,6 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Mobile Menu - rendered as sibling, not child of header */}
       <div
         className={`fixed inset-0 z-[55] bg-navy-900 flex flex-col items-center justify-center gap-6 transition-all duration-300 md:hidden ${
           mobileOpen
@@ -89,26 +87,24 @@ export default function Header() {
         }`}
       >
         {navLinks.map((link) => (
-          <NavLink
+          <a
             key={link.href}
-            to={link.href}
+            href={link.href}
             onClick={() => setMobileOpen(false)}
-            className={({ isActive }) =>
-              `text-2xl font-semibold transition-colors duration-200 py-1 ${
-                isActive ? 'text-gold-400' : 'text-gray-200 hover:text-white'
-              }`
-            }
+            className={`text-2xl font-semibold transition-colors duration-200 py-1 ${
+              isActive(link.href) ? 'text-gold-400' : 'text-gray-200 hover:text-white'
+            }`}
           >
             {link.label}
-          </NavLink>
+          </a>
         ))}
-        <Link
-          to="/tools"
+        <a
+          href="/tools"
           onClick={() => setMobileOpen(false)}
           className="btn-primary mt-4 text-lg px-8 py-3"
         >
           Join Free
-        </Link>
+        </a>
       </div>
     </>
   );

@@ -1,0 +1,157 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTASection from '../components/CTASection.astro';
+import { images } from '../data/images';
+
+const milestones = [
+  { year: '2017', title: 'First Rental Property Purchased', description: 'Bought a single-family home as a house hack while still working a W-2 job.' },
+  { year: '2018', title: '10 Doors Milestone', description: 'Scaled to 10 doors within the first year by leveraging creative financing and partnerships.' },
+  { year: '2019', title: 'Launched YouTube Channel', description: 'Started sharing the journey online, documenting every deal, mistake, and lesson learned.' },
+  { year: '2020', title: '50 Doors', description: 'Hit 50 rental doors by focusing on small multifamily properties in cash-flowing markets.' },
+  { year: '2021', title: 'Created the Calculator App', description: 'Built the Cashflow Retirement Calculator to help other investors analyze deals the right way.' },
+  { year: '2022', title: '100+ Doors', description: 'Crossed 100 doors and expanded into storage units and commercial properties.' },
+  { year: '2023', title: 'Founded Creative Cashflow Club', description: 'Launched a private investor community to connect, share deals, and scale together.' },
+  { year: '2025', title: '$50M+ Portfolio, 230+ Doors', description: 'Portfolio surpassed $50M across residential, storage, and commercial real estate.' },
+];
+
+const portfolioItems = [
+  { label: '230+ Residential Doors', description: 'Single-family and small multifamily rentals across multiple markets.', image: images.vegasAttendees1 },
+  { label: '170+ Storage Units', description: 'Self-storage facilities generating passive, recession-resistant income.', image: images.grandTetonFrame1 },
+  { label: '2 Commercial Gyms', description: 'Value-add commercial properties with long-term leases.', image: images.vegasSupercar },
+  { label: '1 Office Building', description: 'Commercial office space acquired through creative financing.', image: images.vegasCityLights },
+];
+
+const featuredLogos = [
+  { src: images.biggerPockets, alt: 'BiggerPockets' },
+  { src: images.featureLogo1, alt: 'Featured publication' },
+  { src: images.featureLogo3, alt: 'Featured publication' },
+  { src: images.featureLogo4, alt: 'Featured publication' },
+  { src: images.whiteBoardFinance, alt: 'White Board Finance' },
+];
+---
+
+<Layout title="About Chandler David Smith | $50M+ Real Estate Portfolio">
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-navy-900 via-navy-900 to-navy-800"></div>
+    <div class="section-container relative py-20 md:py-32">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="inline-block bg-gold-500/10 text-gold-400 text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
+            About Chandler
+          </span>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+            From House Hack to
+            <span class="gradient-text"> $50M+ Portfolio</span>
+          </h1>
+          <p class="text-lg text-gray-300 leading-relaxed max-w-lg">
+            The real story behind 230+ doors, 170+ storage units, and a mission to help everyday people build wealth through real estate.
+          </p>
+        </div>
+        <div class="flex justify-center md:justify-end">
+          <img
+            src={images.headshot}
+            alt="Chandler David Smith"
+            class="w-72 md:w-96 rounded-2xl shadow-2xl"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Origin Story -->
+  <section class="bg-navy-900">
+    <div class="section-container py-16 md:py-24 max-w-3xl mx-auto">
+      <h2 class="section-heading text-center mb-10">The Origin Story</h2>
+      <div class="space-y-6 text-gray-300 leading-relaxed">
+        <p>
+          I bought my first rental property in 2017 while still working a full-time job. It was a modest single-family home that I house hacked — living in one room and renting out the others. That first property barely cash-flowed, but it taught me something no book or podcast ever could: how real estate actually works when you are the one signing the closing documents and fielding tenant calls at midnight.
+        </p>
+        <p>
+          From that first deal, I became obsessed with the numbers. I spent every night analyzing properties, studying markets, and building spreadsheets. Within a year I had scaled to 10 doors by combining traditional financing with creative strategies — seller financing, partnerships, and BRRRR deals that let me recycle capital faster than I ever thought possible. I made plenty of mistakes along the way, but every bad contractor and vacant unit became a lesson that made the next deal better.
+        </p>
+        <p>
+          By 2020, I had crossed 50 doors and realized that the systems and frameworks I had built could help other people skip the painful trial-and-error phase. I started a YouTube channel to document everything — the wins, the losses, and the real numbers behind every deal. The response was overwhelming. Hundreds of thousands of people were hungry for honest, actionable investing content. That audience became the foundation for the calculator app, the course, the community, and the live events that now make up the Chandler David Smith brand.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="bg-navy-800/50 border-t border-b border-navy-700/40">
+    <div class="section-container py-16 md:py-24">
+      <h2 class="section-heading text-center mb-12">The Journey</h2>
+      <div class="max-w-3xl mx-auto">
+        <div class="relative">
+          <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-navy-700"></div>
+          {milestones.map((milestone, i) => (
+            <div class={`relative flex items-start mb-10 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+              <div class="absolute left-4 md:left-1/2 w-3 h-3 bg-gold-500 rounded-full -translate-x-1/2 mt-1.5"></div>
+              <div class={`ml-10 md:ml-0 md:w-1/2 ${i % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12'}`}>
+                <span class="text-gold-400 font-bold text-sm">{milestone.year}</span>
+                <h3 class="text-white font-bold mt-1">{milestone.title}</h3>
+                <p class="text-gray-400 text-sm mt-1">{milestone.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Overview -->
+  <section class="bg-navy-900">
+    <div class="section-container py-16 md:py-24">
+      <h2 class="section-heading text-center mb-4">Portfolio Overview</h2>
+      <p class="section-subheading text-center mx-auto mb-12">A diversified real estate portfolio built one deal at a time.</p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {portfolioItems.map((item) => (
+          <div class="card overflow-hidden">
+            <img src={item.image} alt={item.label} class="w-full h-48 object-cover" />
+            <div class="p-5">
+              <h3 class="text-white font-bold mb-1">{item.label}</h3>
+              <p class="text-gray-400 text-sm">{item.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Logos -->
+  <section class="bg-navy-800/50 border-t border-b border-navy-700/40">
+    <div class="section-container py-12 md:py-16">
+      <p class="text-center text-gray-500 text-sm font-medium uppercase tracking-wider mb-8">As Featured In</p>
+      <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+        {featuredLogos.map((logo) => (
+          <img src={logo.src} alt={logo.alt} class="h-8 md:h-10 opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaching Philosophy -->
+  <section class="bg-navy-900">
+    <div class="section-container py-16 md:py-24 max-w-3xl mx-auto">
+      <h2 class="section-heading text-center mb-10">Why I Teach</h2>
+      <div class="space-y-6 text-gray-300 leading-relaxed">
+        <p>
+          When I started investing, I did not have a mentor. I learned everything through trial, error, and thousands of hours of research. I made expensive mistakes that could have been avoided with the right guidance. That experience drives everything I do today.
+        </p>
+        <p>
+          I teach because I genuinely believe that rental real estate is the most reliable path to financial freedom for everyday people — and I know from experience that having the right tools, community, and education can compress years of learning into months. If I can help someone avoid even one of the mistakes I made, the entire effort is worth it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CTASection
+    heading="Ready to Start Your Journey?"
+    subheading="Whether you're analyzing your first deal or scaling to 100 doors, there's a next step for you."
+    primaryCTA="Try the Free Calculator"
+    primaryLink="/calculator"
+    secondaryCTA="Explore the Course"
+    secondaryLink="/course"
+  />
+</Layout>

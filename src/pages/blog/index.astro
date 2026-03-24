@@ -1,7 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import BlogFilter from '../../components/BlogFilter.jsx';
-import { sampleBlogPosts, blogCategories } from '../../data/siteData';
+import { blogCategories } from '../../data/siteData';
+import { getBlogPosts } from '../../lib/content.js';
+
+const sampleBlogPosts = getBlogPosts();
 ---
 
 <Layout title="Real Estate Investing Blog | Chandler David Smith" description="Real estate investing tips, deal analysis breakdowns, and strategies from a $50M+ portfolio owner. Learn how to build wealth through rental properties.">

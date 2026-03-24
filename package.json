@@ -12,6 +12,7 @@
     "url": "http://local_proxy@127.0.0.1:46473/git/justins921/CDS"
   },
   "dependencies": {
+    "@astrojs/node": "^9.5.5",
     "@astrojs/react": "^4.2.0",
     "@astrojs/tailwind": "^6.0.0",
     "astro": "^5.7.0",
